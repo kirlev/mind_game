@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
 
-gem 'rails'
+gem 'rails', '3.2.13'
 gem 'bootstrap-sass'
+gem 'bcrypt-ruby'
 gem 'pg'
 
 # Bundle edge Rails instead:
@@ -12,6 +13,9 @@ group :development, :test do
   gem 'rspec-rails'
 end
 
+group :development do
+  gem 'annotate'
+end
 
 # Gems used only for assets and not required
 # in production environments by default.
