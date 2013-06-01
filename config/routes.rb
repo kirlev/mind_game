@@ -1,8 +1,13 @@
 MindGame::Application.routes.draw do
 
+  get "patients/new"
+
 resources :therapists
+resources :patients
 
 match '/signup', to: 'therapists#new'
+
+match '/patient_signup', to: 'patients#new'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

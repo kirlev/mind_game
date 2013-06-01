@@ -10,7 +10,7 @@ class TherapistsController < ApplicationController
     def create
     	@therapist = Therapist.new(params[:therapist])
     	if @therapist.save
-    		flash[:success] = "Welcome to the Sample App!"
+    		flash[:success] = "Welcome to the Brain Tracker!"
     		redirect_to @therapist
     	else
     		render 'new'

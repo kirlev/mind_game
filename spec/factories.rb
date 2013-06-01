@@ -7,4 +7,14 @@ FactoryGirl.define do
     password "foobar"
     password_confirmation "foobar"
   end
+
+  factory :patient do
+  	username     "mishaKatz"
+    first_name     "Misha"
+    last_name     "Katz"
+    age     55
+    email    "misha@example.com"
+    password "foobar"
+    password_confirmation "foobar"
+  end
 end
