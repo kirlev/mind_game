@@ -8,8 +8,8 @@ describe "TherapistPages" do
     let(:therapist) { FactoryGirl.create(:therapist) }
     before { visit therapist_path(therapist) }
 
-    #it { should have_selector('h1',    text: therapist.name) }
-    #it { should have_selector('title', text: therapist.first_name) }
+    it { should have_selector('h1',    text: therapist.first_name) }
+    it { should have_selector('title', text: therapist.first_name) }
   end
 
   describe "signup" do

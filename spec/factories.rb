@@ -13,7 +13,6 @@ FactoryGirl.define do
     first_name     "Misha"
     last_name     "Katz"
     age     55
-    email    "misha@example.com"
     password "foobar"
     password_confirmation "foobar"
   end

@@ -8,8 +8,8 @@ describe "PatientPages" do
     let(:patient) { FactoryGirl.create(:patient) }
     before { visit patient_path(patient) }
 
-    #it { should have_selector('h1',    text: patient.name) }
-    #it { should have_selector('title', text: patient.first_name) }
+    it { should have_selector('h1',    text: patient.first_name) }
+    it { should have_selector('title', text: patient.first_name) }
   end
 
   describe "patient signup" do

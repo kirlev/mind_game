@@ -1,12 +1,18 @@
 MindGame::Application.routes.draw do
 
-  get "patients/new"
+root to: 'static_pages#home'
+
 
 resources :therapists
 resources :patients
 
-match '/signup', to: 'therapists#new'
+#static pages
+match '/help',    to: 'static_pages#help'
+match '/about',   to: 'static_pages#about'
+match '/contact', to: 'static_pages#contact'  
 
+#sign-up pages
+match '/signup', to: 'therapists#new'
 match '/patient_signup', to: 'patients#new'
   # The priority is based upon order of creation:
   # first created -> highest priority.
