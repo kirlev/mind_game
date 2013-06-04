@@ -37,6 +37,15 @@ describe "PatientPages" do
       it "should create a patient" do
         expect { click_button submit }.to change(Patient, :count).by(1)
       end
+
+      describe "after saving the patient" do
+        before { click_button submit }
+        let(:patient) { Patient.find_by_username('blabla') }
+
+        it { should have_selector('title', text: patient.first_name) }
+        it { should have_selector('div.alert.alert-success', text: 'Welcome') }
+        it { should have_link('Sign out') }
+      end
     end
   end
 

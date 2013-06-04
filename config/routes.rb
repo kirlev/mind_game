@@ -5,6 +5,7 @@ root to: 'static_pages#home'
 
 resources :therapists
 resources :patients
+resources :sessions, only: [:new, :create, :destroy]
 
 #static pages
 match '/help',    to: 'static_pages#help'
@@ -14,6 +15,10 @@ match '/contact', to: 'static_pages#contact'
 #sign-up pages
 match '/signup', to: 'therapists#new'
 match '/patient_signup', to: 'patients#new'
+
+#sign-in-out pages
+match '/signin',  to: 'sessions#new'
+match '/signout', to: 'sessions#destroy', via: :delete
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

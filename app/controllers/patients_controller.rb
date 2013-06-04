@@ -10,6 +10,7 @@ class PatientsController < ApplicationController
     def create
     	@patient = Patient.new(params[:patient])
     	if @patient.save
+            sign_in @patient
     		flash[:success] = "Welcome to Brain Tracker!"
     		redirect_to @patient
     	else
