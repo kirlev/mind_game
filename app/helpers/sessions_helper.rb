@@ -30,4 +30,12 @@ module SessionsHelper
     end
   end
 
+  def edit_user_path(user)
+    if user.instance_of?(Therapist)     
+        edit_therapist_path(user)
+    elsif user.instance_of?(Patient)
+        edit_patient_path(user)
+    end
+  end
+
 end

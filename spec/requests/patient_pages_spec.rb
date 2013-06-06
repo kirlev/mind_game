@@ -49,4 +49,51 @@ describe "PatientPages" do
     end
   end
 
+  describe "edit" do
+    let(:patient) { FactoryGirl.create(:patient) }
+    before { visit edit_patient_path(patient) }
+
+    describe "page" do
+      it { should have_selector('h1',    text: "Update your profile") }
+      it { should have_selector('title', text: "Edit patient") }
+      #it { should have_link('change', href: 'http://gravatar.com/emails') }
+    end
+
+    describe "with invalid information" do
+      before { click_button "Save changes" }
+
+      it { should have_content('error') }
+    end
+
+    describe "with valid information" do
+      before do
+        fill_in "Password",         with: patient.password
+        fill_in "Confirm Password", with: patient.password
+        click_button "Save changes"
+      end
+
+      it { should have_selector('div.alert.alert-success') }
+      it { should have_link('Sign out', href: signout_path) }
+    end
+  end
+
+  describe "index" do
+    before do
+      sign_in FactoryGirl.create(:patient)
+      FactoryGirl.create(:patient, first_name: "Bob", email: "bob@example.com")
+      FactoryGirl.create(:patient, first_name: "Ben", email: "ben@example.com")
+      visit patients_path
+    end
+
+    it { should have_selector('title', text: 'All users') }
+    it { should have_selector('h1',    text: 'All users') }
+
+    it "should list each user" do
+      Patient.all.each do |patient|
+        page.should have_selector('li', text: patient.first_name)
+      end
+    end
+  end
+
+
 end
