@@ -6,16 +6,19 @@ class PatientsController < ApplicationController
     end
 
     def new
-    	@patient = Patient.new
+        @therapist_id = params[:patient][:therapist_id]
+        @patient = Patient.new(params[:patient])
     end
 
     def create
     	@patient = Patient.new(params[:patient])
     	if @patient.save
-            sign_in @patient
-    		flash[:success] = "Welcome to Brain Tracker!"
-    		redirect_to @patient
+            #sign_in @patient
+    		#flash[:success] = "Welcome to Brain Tracker!"
+            flash[:success] = "Added new patient"
+    		redirect_to Therapist.find(params[:patient][:therapist_id])
     	else
+            @therapist_id = params[:patient][:therapist_id]
     		render 'new'
     	end
     end

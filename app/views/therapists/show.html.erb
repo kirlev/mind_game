@@ -1,2 +1,16 @@
 <% provide(:title, @therapist.first_name) %>
-<%= @therapist.first_name %>, <%= @therapist.email %>
+
+<ul class="nav" >
+    <%= @therapist.first_name %>, <%= @therapist.email %>
+    <li><%= link_to "Add new patient", patient_signup_path( :patient =>
+    				{ :therapist_id => @therapist.id.to_s }) %>
+    </li>
+</ul>
+<div class="container">
+	<ul class="users">
+		<li class="divider"></li>
+  		<% @patients.each do |patient| %>
+    	<%= render :template => 'therapists/_patient', :locals => { :patient => patient }%>
+  		<% end %>
+	</ul>
+</div>

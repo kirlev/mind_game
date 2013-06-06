@@ -17,4 +17,6 @@
 
 class Patient < User
 
+	validates :therapist_id, presence: true
+
 end

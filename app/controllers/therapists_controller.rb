@@ -3,6 +3,7 @@ class TherapistsController < ApplicationController
 
 	def show
         @therapist = Therapist.find(params[:id])
+        @patients = Patient.find(:all, :conditions => ["therapist_id = ?", @therapist.id])
     end
 
     def new
