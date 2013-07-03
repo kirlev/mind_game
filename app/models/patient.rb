@@ -17,6 +17,9 @@
 
 class Patient < User
 
+	has_many :statistics
+    has_many :games, :through => :statistics
+
 	validates :therapist_id, presence: true
 
 end

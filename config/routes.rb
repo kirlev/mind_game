@@ -1,8 +1,10 @@
 MindGame::Application.routes.draw do
 
+  get "statistics/create"
+
 root to: 'static_pages#home'
 
-
+resources :statistics
 resources :therapists
 resources :patients
 resources :sessions, only: [:new, :create, :destroy]
