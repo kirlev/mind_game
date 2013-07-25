@@ -1,0 +1,10 @@
+<% provide(:title, 'All games') %>
+<h1>All games</h1>
+
+<ul class="users">
+  <% @games.each do |game| %>
+    <li>
+      <%= link_to game.name, game_path(game) %>
+    </li>
+  <% end %>
+</ul>

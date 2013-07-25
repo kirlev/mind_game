@@ -22,4 +22,13 @@ class Patient < User
 
 	validates :therapist_id, presence: true
 
+
+	def get_ratio_statistics(game_id)
+		stats=Statistic.where(game_id: game_id, user_id: id).order(:created_at)
+    results= stats.map { |stat| [stat.created_at.to_i, stat.ratio] }
+    p "-"*100
+    p results
+    results.to_json
+	end
+
 end

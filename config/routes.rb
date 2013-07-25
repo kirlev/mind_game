@@ -1,9 +1,14 @@
 MindGame::Application.routes.draw do
 
+  get "games/show"
+
+  get "games/index"
+
   get "statistics/create"
 
 root to: 'static_pages#home'
 
+resources :games
 resources :statistics
 resources :therapists
 resources :patients
