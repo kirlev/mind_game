@@ -1,5 +1,6 @@
 class TherapistsController < ApplicationController
-    before_filter :signed_in_user, only: [:index, :edit, :update]
+    before_filter :signed_in_user, only: [:show, :update, :edit, :index]
+    before_filter :correct_user, only: [:show, :update, :edit, :index]
 
 	def show
         @therapist = Therapist.find(params[:id])
@@ -43,7 +44,15 @@ class TherapistsController < ApplicationController
     private
 
     def signed_in_user
-      redirect_to signin_url, notice: "Please sign in." unless signed_in?
+        store_location
+        redirect_to signin_url, notice: "Please sign in." unless signed_in?
+    end
+
+    def correct_user
+        @user = User.find(params[:id])
+        unless corrent_user?(@user)
+            redirect_to(root_path)
+        end
     end
 
 end

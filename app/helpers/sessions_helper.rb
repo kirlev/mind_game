@@ -38,4 +38,21 @@ module SessionsHelper
     end
   end
 
+  def corrent_user?(user)
+    user == current_user
+  end
+
+  def corrent_user_therapist?(user)
+    user.therapist_id == current_user.id
+  end
+
+  def redirect_back_or(default)
+    redirect_to(session[:return_to] || default)
+    session.delete(:return_to)
+  end
+
+  def store_location
+    session[:return_to] = request.url
+  end
+
 end
