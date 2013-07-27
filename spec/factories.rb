@@ -13,7 +13,7 @@ FactoryGirl.define do
   	username     "mishaKatz"
     first_name     "Misha"
     last_name     "Katz"
-    age     55
+    age     Date.new(1950, 5, 12)
     password "foobar"
     password_confirmation "foobar"
   end

@@ -38,11 +38,11 @@ module SessionsHelper
     end
   end
 
-  def corrent_user?(user)
+  def current_user?(user)
     user == current_user
   end
 
-  def corrent_user_therapist?(user)
+  def current_user_therapist?(user)
     user.therapist_id == current_user.id
   end
 

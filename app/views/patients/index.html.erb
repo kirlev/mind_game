@@ -5,6 +5,10 @@
   <% @patients.each do |patient| %>
     <li>
       <%= link_to patient.first_name, patient %>
+      <% if current_user.admin? && !current_user?(patient) %>
+      <%= link_to "delete patient", patient, method: :delete, 
+  									data: { confirm: "You sure?" } %>
+  	  <% end %>
     </li>
   <% end %>
 </ul>

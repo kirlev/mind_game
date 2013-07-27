@@ -18,7 +18,8 @@
       <%= f.text_field :last_name %>
 
       <%= f.label :age %>
-      <%= f.text_field :age %>
+      <%= f.date_select(:age, :start_year => 1910, :end_year => Date.today.year,
+                        :use_month_numbers => true, :prompt => { :day => 'Select day', :month => 'Select month', :year => 'Select year'}) %>
 
       <%= f.label :password %>
       <%= f.password_field :password %>

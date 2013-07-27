@@ -7,10 +7,12 @@
     </li>
 </ul>
 <div class="container">
-	<ul class="users">
+  <%= will_paginate @patients%>
+	<ul class="patients">
 		<li class="divider"></li>
   		<% @patients.each do |patient| %>
     	<%= render :template => 'therapists/_patient', :locals => { :patient => patient }%>
   		<% end %>
 	</ul>
+    <%= will_paginate @patients%>
 </div>

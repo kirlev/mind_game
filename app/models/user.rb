@@ -26,7 +26,6 @@ class User < ActiveRecord::Base
 
   validates :first_name, presence: true, length: { maximum: 50 }
   validates :last_name, presence: true, length: { maximum: 50 }
-  validates :age, :numericality => { :only_integer => true }, :allow_nil => true
   
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, format:     { with: VALID_EMAIL_REGEX }, :allow_nil => true

@@ -44,4 +44,6 @@
   <ul class="dropdown-menu">
   	<div id="stats_chart_<%= patient.id %>" style="with:560px; hight:300px"></div>
   </ul>
+  <%= link_to "delete patient", patient, method: :delete, 
+  									data: { confirm: "You sure?" } %>
 </li>
