@@ -16,7 +16,8 @@
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :username, :age, :first_name, :last_name, :email, :therapist_id,
+  attr_accessible :username, :age, :first_name, :last_name, :email, :therapist_id, 
+              :phone_number, :date_of_birth, :address,
               :hospital_name, :password, :password_confirmation, :type
 
   has_secure_password
@@ -35,6 +36,16 @@ class User < ActiveRecord::Base
                     
   validates :password, presence: true, length: { minimum: 6 }
   validates :password_confirmation, presence: true
+
+  def full_name
+    self.first_name + " " + self.last_name
+  end
+
+  def age
+    unless self.date_of_birth.nil?
+      Date.today.year - self.date_of_birth.year
+    end
+  end
 
 private
 

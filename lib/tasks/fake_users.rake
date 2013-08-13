@@ -24,13 +24,23 @@ namespace :db do
 		100.times do |n| 
 			first_name = Faker::Name.first_name
 			last_name = Faker::Name.last_name
+			date_of_birth = Date.today
+			phone_number = Faker::PhoneNumber.phone_number
+			address = Faker::Address.street_name.to_s 
+						+ Faker::Address.building_number.to_s 
+						+ ", " 
+						+ Faker::Address.city.to_s
+
 			email = "exampl-#{n+11}@braintracker.com"
 			username = "patient#{n+11}"
 			password = "foobar"
 			therapist_id = 1 + Random.rand(Therapist.count)
 			Patient.create!(first_name: first_name, last_name: last_name, email: email,
+				date_of_birth: date_of_birth, phone_number: phone_number, address: address, 
 				username: username, password: password, password_confirmation: password,
 				therapist_id: therapist_id)
 		end
+
+		Game.create(developer: "Nir Levi", name: "Brain Tease")
 	end
 end

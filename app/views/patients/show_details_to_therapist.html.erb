@@ -1,0 +1,114 @@
+<% content_for :javascripts do  %>
+	
+<% end %>
+
+<h1><%= @patient.first_name %>, <%= @patient.last_name %></h1>
+<h3 style="color:red">Last login: <%= @patient.updated_at %></h3>
+<h3>Date of birth: <%= @patient.date_of_birth %> (<%= @patient.age %>)</h3>
+<h3>Address: <%= @patient.address %></h3>
+<h3>Phone number: <%= @patient.phone_number %></h3>
+<h3>Injury description: <%= @patient.injury %></h3>
+<div id="statistics">
+	<form>
+        <p>Patient's statistics</p>
+	    <%= hidden_field :patient, :id, :value => @patient.id %>
+	    <%= select :game, :id, Game.all.collect {|p| [p.name, p.id]}, {:prompt => "Select game"}, {:id => 'stats_select'} %>
+    </form>
+	<div id="stats_chart" style="with:560px; hight:300px"></div>
+    <%= form_for(Instruction.new, remote: true) do |f| %>
+        <p><center>Select patient's assignments</center></p>
+        <%= f.hidden_field :patient_id, :value => @patient.id %>
+        <%= f.select :games_id, Game.all.collect {|p| [p.name, p.id]}, {}, {:multiple => true} %>
+
+        <%= f.label :details ,"Enter instructions" %>
+        <%= f.text_field :details %>
+        <%= f.submit "Submit instruction to patient", {:class => "btn btn-small btn-primary", :id => "instruction_submit" } %>
+    </br>
+        <span class="label label-success" id="instuctions_span"></span>
+    <% end %>
+
+
+	<script type="text/javascript" charset="utf-8">
+	function updateStats(game_id, patient_id) {
+		function processJson(data) {
+			for (var i=0;i<data.length;i++)
+                for(var j=0;j<data[i].length;j++)
+			{
+				data[i][j][0] = new Date(data[i][j][0] * 1000);
+                data[i][j][1] = parseInt(data[i][j][1]);
+			}
+			return data;
+		}
+
+        var ajaxData = {
+        	"statistic": {
+        		"game_id" : game_id,
+        		"user_id" : patient_id
+        	}
+        }
+
+        var dataSeries;
+        var chart;
+        $.getJSON('<%= escape_javascript("/statistics/#{@patient.id.to_s}") %>',
+        			ajaxData, 
+        			function(data){
+       					dataSeries = processJson(data);
+                        renderGraph();
+        			});
+
+        function renderGraph(){
+            chart = new Highcharts.Chart({
+                chart: {
+                    zoomType: 'x',
+                    type: 'line',
+                    renderTo: "stats_chart"
+                },
+                title: {
+                    text: "game statistics"
+                },
+                xAxis: {
+                    type: "datetime",
+                    dateTimeLabelFormats: {
+                        month: '%e. %b',
+                        year: '%b'
+                    }
+                },
+                yAxis: {
+                    title: {
+                        text: "Performance"
+                    }
+                },
+                tooltip: {
+                    formatter: function() {
+                        return '<b>' + this.series.name + '</b><br/>' + 
+                        Highcharts.dateFormat('%e. %b', this.x) + ': ' + this.y;                   }
+                },
+                series: [{
+                    name: 'Performance ratio',
+                    data: dataSeries[0]
+                }, {
+                    name: 'Repeats',
+                    data: dataSeries[1]
+                }, {
+                    name: 'Time',
+                    data: dataSeries[2]
+                }
+                ]
+            });
+        }
+	}
+
+	$("#stats_select").change(function() {
+        updateStats($(this).val(), $("#patient_id").val());
+        });
+    $(document).ready(function() {
+        $("#instruction_submit").click(function() {
+            $("#instuctions_span").empty();
+        });
+        $("#new_instruction").bind("ajax:success", function() {
+            $("#instuctions_span").append("instruction sent");
+        });
+    })
+        
+	</script>
+</div>

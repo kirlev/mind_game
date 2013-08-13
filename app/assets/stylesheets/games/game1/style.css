@@ -203,9 +203,12 @@ ul,dl,hr,h1,h2,h3,h4,h5,h6,table,address,fieldset, blockquote {
 
 /* Board */
 
+#wrapperwrapper {
+    float:left;
+}
 #wrapper {
 	margin: 0 0 0 -300px;
-	position: absolute;
+	/*position: absolute  ;*/
 	top: 70px;
 	left: 50%;
 	width: 600px;

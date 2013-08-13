@@ -11,13 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130727051431) do
+ActiveRecord::Schema.define(:version => 20130812164141) do
 
   create_table "games", :force => true do |t|
     t.string   "name"
     t.string   "developer"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "instructions", :force => true do |t|
+    t.string   "games_id"
+    t.string   "details"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "patient_id"
   end
 
   create_table "statistics", :force => true do |t|
@@ -39,11 +47,15 @@ ActiveRecord::Schema.define(:version => 20130727051431) do
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
     t.string   "username"
-    t.date     "age"
+    t.date     "date_of_birth"
     t.string   "type"
     t.string   "remember_token"
     t.integer  "therapist_id"
     t.boolean  "admin"
+    t.string   "address"
+    t.integer  "phone_number"
+    t.string   "injury"
+    t.datetime "last_login"
   end
 
   add_index "users", ["remember_token"], :name => "index_users_on_remember_token"

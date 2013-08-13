@@ -1,6 +1,15 @@
-<%= @patient.first_name %>, <%= @patient.last_name %>
 
-<ul>
-	<li><%= link_to "go to games page", games_path %>
-    </li>
-</ul>
+<h1><center>Hello <%= @patient.full_name %></center></h1>
+<div>
+	<h3><b>Assignments</b></h3><br/>
+	<ul>
+		<% @games.each do |game| %>
+            <%= link_to game.name, game_path(game) %>
+        </br>
+        <% end %>
+	</ul>
+	<section id="instruction_details">
+		<h5><u>Instructions</u>: </h5><p><%= @instruction_details %></p>
+	</section>
+	<hr>
+	<p>for more games go to <%= link_to "games page", games_path %></p>

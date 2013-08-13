@@ -1,49 +1,9 @@
-<script type="text/javascript" charset="utf-8">
-	$(function() {
-		function add_date(data) {
-			for (var i=0;i<data.length;i++)
-			{
-				data[i][0] = new Date(data[i][0] * 1000);;
-			}
-			return data;
-		}
-
-        input=<%= patient.get_ratio_statistics(1) %>;
-        dataSeries=add_date(input);
-		new Highcharts.Chart({
-			chart: {
-                zoomType: 'x',
-				type: 'line',
-				renderTo: "stats_chart_<%= patient.id %>"
-			},
-			title: {
-				text: "game statistics"
-			},
-			xAxis: {
-				type: "datetime"
-			},
-			yAxis: {
-				title: {
-					text: "Performance"
-				}
-			},
-			series: [{
-				data: dataSeries
-			}]
-		});
-	});
-
-</script>
 
 <li id="navbar fat-menu" class="dropdown" style="overflow:visible;">
-  <%= link_to patient.first_name, patient %>
-  <%= link_to patient.last_name, patient %>
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              Statistics <b class="caret"></b>
+  <b>
+  <%= link_to patient.full_name, show_details_to_therapist_patient_path(patient) %>
+  </b>
   </a>
-  <ul class="dropdown-menu">
-  	<div id="stats_chart_<%= patient.id %>" style="with:560px; hight:300px"></div>
-  </ul>
   <%= link_to "delete patient", patient, method: :delete, 
   									data: { confirm: "You sure?" } %>
 </li>

@@ -1,5 +1,7 @@
 MindGame::Application.routes.draw do
 
+  get "instructions/create"
+
   get "games/show"
 
   get "games/index"
@@ -9,9 +11,13 @@ MindGame::Application.routes.draw do
 root to: 'static_pages#home'
 
 resources :games
+resources :instructions
 resources :statistics
 resources :therapists
-resources :patients
+resources :patients do
+  get 'show_details_to_therapist', :on => :member
+end
+
 resources :sessions, only: [:new, :create, :destroy]
 
 #static pages

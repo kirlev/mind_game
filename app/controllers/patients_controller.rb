@@ -2,10 +2,13 @@ class PatientsController < ApplicationController
     before_filter :signed_in_user , only: [:show, :update, :edit]
     before_filter :correct_user, only: [:show, :update, :edit]
     before_filter :admin_user, only: [:index]
+    before_filter :correct_therapist, only: [:show_details_to_therapist]
 
     def show
         if Patient.exists?(params[:id])
             @patient = Patient.find(params[:id])
+            @games = @patient.get_recomnded_games
+            @instruction_details = @patient.get_instruction_details
         elsif Patient.count > params[:id].to_i
             redirect_to patient_path(params[:id].to_i + 1)
         else
@@ -19,10 +22,8 @@ class PatientsController < ApplicationController
     end
 
     def create
-    	@patient = Patient.new(params[:patient])
+    	@patient = parse_params_to_new_patient(params)
     	if @patient.save
-            #sign_in @patient
-    		#flash[:success] = "Welcome to Brain Tracker!"
             flash[:success] = "Added new patient"
     		redirect_to Therapist.find(params[:patient][:therapist_id])
     	else
@@ -56,6 +57,10 @@ class PatientsController < ApplicationController
         redirect_to therapist_path(current_user)
     end
 
+    def show_details_to_therapist
+        @patient = Patient.find(params[:id])
+    end
+
     private
 
     def signed_in_user
@@ -70,7 +75,23 @@ class PatientsController < ApplicationController
         end
     end
 
+    def correct_therapist
+        @user = User.find(params[:id])
+        unless current_user_therapist?(@user) or current_user.admin?
+            redirect_to(root_path)
+        end
+    end
+
     def admin_user
         redirect_to(root_path) unless current_user.admin?
+    end
+
+    def parse_params_to_new_patient(params)
+        year = params[:patient]["age(1i)"].to_i
+        month = params[:patient]["age(2i)"].to_i
+        day = params[:patient]["age(3i)"].to_i
+        date_of_birth = Date.new(year, month, day)
+        params[:patient][:date_of_birth] = date_of_birth
+        Patient.new(params[:patient].except("age(1i)", "age(2i)", "age(3i)"))
     end
 end
