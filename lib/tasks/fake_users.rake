@@ -5,7 +5,7 @@ namespace :db do
 		Faker::Config.locale = :he
 		email = "exampl@braintracker.com"
 		password = "foobar"
-		admin = User.create!(first_name: "adminstrator", last_name: "adminstrator", email: email,
+		admin = Therapist.create!(first_name: "adminstrator", last_name: "adminstrator", email: email,
 				username: "admin", password: password, password_confirmation: password)
 		admin.toggle!(:admin)
 
