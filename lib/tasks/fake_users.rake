@@ -26,10 +26,10 @@ namespace :db do
 			last_name = Faker::Name.last_name
 			date_of_birth = Date.today
 			phone_number = Faker::PhoneNumber.phone_number
-			address = Faker::Address.street_name.to_s 
-						+ Faker::Address.building_number.to_s 
-						+ ", " 
-						+ Faker::Address.city.to_s
+			address = Faker::Address.street_name.to_s + 
+						Faker::Address.building_number.to_s + 
+						", " + 
+						Faker::Address.city.to_s
 
 			email = "exampl-#{n+11}@braintracker.com"
 			username = "patient#{n+11}"
