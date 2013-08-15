@@ -17,7 +17,7 @@ function sendGameStats(repeats, ratio) {
   		}
 	}
 
-	$.post("http://localhost:3000/statistics?callback=?", stats);
+	$.post("/statistics", stats);
 
 }
 

@@ -47,7 +47,14 @@ MindGame::Application.configure do
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
   # config.assets.precompile += %w( search.js )
-  #config.assets.precompile += %w( highcharts.js )
+  config.assets.precompile += %w( games/game1/reset.css )
+  config.assets.precompile += %w( games/game1/style.css )
+
+  config.assets.precompile += %w( games/game1/btracker.js )
+  config.assets.precompile += %w( games/game1/kinetic.min.js )
+  config.assets.precompile += %w( games/game1/data.js )
+  config.assets.precompile += %w( games/game1/game.js )
+  config.assets.precompile += %w( games/game1/jquery-1.6.3.min.js )
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
