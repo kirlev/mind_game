@@ -12,6 +12,27 @@
   src: local('Bree Serif'), local('BreeSerif-Regular'), url('http://themes.googleusercontent.com/static/fonts/breeserif/v2/LQ7WLTaITDg4OSRuOZCpsxsxEYwM7FgeyaSgU71cLG0.woff') format('woff');
 }
 
+/* General */
+
+body, html {
+	overflow-x: hidden;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	font-family: arial;	
+}
+
+body {
+	background: #000;
+	background-size: cover;
+	position: relative;
+}
+
+p {
+	line-height: 22px;
+}
+
 h1 {
 	font: 300 60px/1.3 "Bree Serif", Georgia, serif;
 	text-shadow: 2px 2px 0 #3c434f, 2px 4px 0 #000, -1px -1px 15px black;
@@ -93,13 +114,13 @@ ul,p,dl,hr,h1,h2,h3,h4,h5,h6,pre,table,address,fieldset, blockquote {
 	background: linear-gradient(top, rgba(255, 255, 255, 0.8), rgba(200, 200, 200, 0.9));
 	border-radius: 50em;
 	position: absolute;
-	right: 10px;
+	right: -50px;
 	top: 160px;
 }
 
 .btn.prev {
 	right: auto;
-	left: 10px;
+	left: -50px;
 }
 
 .btn::before {
@@ -159,9 +180,37 @@ ul,p,dl,hr,h1,h2,h3,h4,h5,h6,pre,table,address,fieldset, blockquote {
 	opacity: 0.4;
 }
 
+/* Header */
 
+header {
+	background: rgba(0,0,0,0.8);
+	position: relative;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	min-height: 40px;
+	font-size: 12px;
+}
 
+nav {
+	float: right;
+	position: relative;
+}
 
+nav a {
+	padding: 15px 10px;
+	color: #555;
+	display: inline-block;
+	color: #CFBA58;
+}
+
+nav a:last-child {
+	margin-right: 20px;
+}
+
+nav a:hover {
+	color: #fff;
+}
 
 .player {	
 	padding: 15px 20px;
@@ -207,19 +256,19 @@ ul,p,dl,hr,h1,h2,h3,h4,h5,h6,pre,table,address,fieldset, blockquote {
 
 #wrapper {
 	margin: 0 0 0 -300px;
-	position: relative;
+	position: absolute;
 	top: 70px;
 	left: 50%;
 	width: 600px;
 }
 
 #wrapper section {
-	/*height: 370px; */
+	height: 370px;
 	margin: 0 auto;
 	width: 350px;
 	padding: 10px 10px 26px;
 	background: #C7C7C7;
-	/*position: relative;*/
+	position: relative;
 	box-shadow: 0 1px 1px rgba(0,0,0,0.3),
                 0 6px 0 -3px #c7c7c7,
                 0 7px 1px -3px rgba(0,0,0,0.3),
