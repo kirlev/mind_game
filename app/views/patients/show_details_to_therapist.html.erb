@@ -86,7 +86,7 @@
 
 <%= link_to "Back to profile page",   current_user %>
 </br>
-<h1><%= @patient.first_name %>, <%= @patient.last_name %></h1>
+<h1><%= @patient.full_name %></h1>
 <h3 style="color:red">Last login: <%= @patient.updated_at %></h3>
 <h3>Date of birth: <%= @patient.date_of_birth %> (<%= @patient.age %>)</h3>
 <h3>Address: <%= @patient.address %></h3>
