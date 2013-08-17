@@ -60,7 +60,7 @@ a {
 	text-decoration: none;
 }
 
-ul,p,dl,hr,h1,h2,h3,h4,h5,h6,table,address,fieldset, blockquote {
+ul,p,dl,hr,h1,h2,h3,h4,h5,h6,pre,table,address,fieldset, blockquote {
 	margin-bottom: 20px;
 }
 
@@ -94,7 +94,7 @@ ul,p,dl,hr,h1,h2,h3,h4,h5,h6,table,address,fieldset, blockquote {
 	border-radius: 50em;
 	position: absolute;
 	right: 10px;
-	top: 250px;
+	top: 160px;
 }
 
 .btn.prev {
