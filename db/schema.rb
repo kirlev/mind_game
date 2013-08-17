@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130812164141) do
+ActiveRecord::Schema.define(:version => 20130817150525) do
 
   create_table "games", :force => true do |t|
     t.string   "name"
@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(:version => 20130812164141) do
     t.integer  "therapist_id"
     t.boolean  "admin"
     t.string   "address"
-    t.integer  "phone_number"
+    t.string   "phone_number"
     t.string   "injury"
     t.datetime "last_login"
   end

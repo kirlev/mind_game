@@ -17,7 +17,7 @@
 
 class User < ActiveRecord::Base
   attr_accessible :username, :age, :first_name, :last_name, :email, :therapist_id, 
-              :phone_number, :date_of_birth, :address,
+              :phone_number, :date_of_birth, :address, :injury,
               :hospital_name, :password, :password_confirmation, :type
 
   has_secure_password

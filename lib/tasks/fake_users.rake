@@ -5,7 +5,7 @@ namespace :db do
 		Faker::Config.locale = :he
 		email = "exampl@braintracker.com"
 		password = "foobar"
-		admin = Therapist.create!(first_name: "adminstrator", last_name: "adminstrator", email: email,
+		admin = User.create!(first_name: "adminstrator", last_name: "adminstrator", email: email,
 				username: "admin", password: password, password_confirmation: password)
 		admin.toggle!(:admin)
 
@@ -21,7 +21,7 @@ namespace :db do
 				hospital_name: hospital_name)
 		end
 
-		100.times do |n| 
+		200.times do |n| 
 			first_name = Faker::Name.first_name
 			last_name = Faker::Name.last_name
 			date_of_birth = Date.today

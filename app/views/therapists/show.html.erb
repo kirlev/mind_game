@@ -1,16 +1,17 @@
-<% provide(:title, @therapist.first_name) %>
+<% provide(:title, @therapist.full_name) %>
 
 <ul class="nav" >
-    <%= @therapist.first_name %>, <%= @therapist.email %>
+    <h3><%= @therapist.full_name %></h3>
     <li><%= link_to "Add new patient", patient_signup_path( :patient =>
     				{ :therapist_id => @therapist.id.to_s }) %>
     </li>
 </ul>
 <div class="container">
+  <h4>Your patients:</h4>
   <%= will_paginate @patients%>
 	<ul class="patients">
-		<li class="divider"></li>
   		<% @patients.each do |patient| %>
+     </br>
     	<%= render :template => 'therapists/_patient', :locals => { :patient => patient }%>
   		<% end %>
 	</ul>

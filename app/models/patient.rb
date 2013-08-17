@@ -36,12 +36,20 @@ class Patient < User
 	end
 
 	def get_recomnded_games
-		games_id_array = last_instruction.games_id.split(',').map { |x| x.to_i }
-		return Game.find(games_id_array)
+		unless (last_instruction.nil?)
+			games_id_array = last_instruction.games_id.split(',').map { |x| x.to_i }
+			return Game.find(games_id_array)
+		else
+			return nil
+		end
 	end
 
 	def get_instruction_details
-		return last_instruction.details
+		unless last_instruction.nil?
+			return last_instruction.details
+		else
+			return nil
+		end
 	end
 
 	private

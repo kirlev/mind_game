@@ -21,6 +21,15 @@
       <%= f.date_select(:age, :start_year => 1910, :end_year => Date.today.year,
                         :use_month_numbers => true, :prompt => { :day => 'Select day', :month => 'Select month', :year => 'Select year'}) %>
 
+      <%= f.label :address %>
+      <%= f.text_field :address %>
+
+      <%= f.label :phone_number %>
+      <%= f.text_field :phone_number %>
+
+      <%= f.label :injury %>
+      <%= f.text_area :injury, :rows => 5 %>
+
       <%= f.label :password %>
       <%= f.password_field :password %>
 
