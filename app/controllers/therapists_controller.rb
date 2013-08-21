@@ -7,7 +7,7 @@ class TherapistsController < ApplicationController
 	def show
         if Therapist.exists?(params[:id])
             @therapist = Therapist.find(params[:id])
-            @patients = Patient.find(:all, :conditions => ["therapist_id = ?", @therapist.id]).paginate(:page => params[:page], :per_page => 10)
+            @patients = Patient.find(:all, :conditions => ["therapist_id = ?", @therapist.id], :order => "last_login desc").paginate(:page => params[:page], :per_page => 10)
         elsif Therapist.count > params[:id].to_i
             redirect_to therapist_path(params[:id].to_i + 1)
         else

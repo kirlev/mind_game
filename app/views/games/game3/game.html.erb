@@ -1,0 +1,32 @@
+
+<% content_for :stylesheets do %>
+    <link type="text/css" rel="stylesheet" href="/assets/games/game3/style.css"/>
+<% end %>
+
+<% content_for :javascripts do %>
+    <script type="text/javascript">
+        var game = <%= @game.id %>;
+    </script>
+    <script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery/jquery-1.6.3.js"></script>
+    <script src="/assets/games/btracker.js" type="text/javascript"></script>
+    <script src="/assets/games/game3/logic.js" type="text/javascript"></script>
+    <meta name = "viewport" content = "width = device-width">
+<% end %>
+
+
+	<div id="outside_wrapper">
+		<div id="wrapper">
+		    <h1><center>Shapes & colors Game</center></h1>
+			<section id="combination_table">
+				<div id="small_shape_box">
+					<div id="small_shape"></div>
+				</div>
+				<div id="big_shape"></div>
+			</section>
+			<h2><center>choose the right combination</center></h2>
+			<section id="choices_table">
+			</section>
+			<section id="display">
+			</section>
+		</div>
+	</div>

@@ -42,5 +42,7 @@ namespace :db do
 		end
 
 		Game.create(developer: "Nir Levi", name: "Brain Tease")
+		Game.create(name: "Memory Game", developer: "Nir Levi")
+		Game.create(name: "Shapes & Colors", developer: "Nir Levi")
 	end
 end

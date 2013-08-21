@@ -17,12 +17,13 @@
 
 class User < ActiveRecord::Base
   attr_accessible :username, :age, :first_name, :last_name, :email, :therapist_id, 
-              :phone_number, :date_of_birth, :address, :injury,
+              :phone_number, :date_of_birth, :address, :injury, :last_login, 
               :hospital_name, :password, :password_confirmation, :type
 
   has_secure_password
 
   before_save { |user| user.username = username.downcase } 
+  before_save { |user| user.last_login = DateTime.now } 
   before_save :create_remember_token
 
   validates :first_name, presence: true, length: { maximum: 50 }

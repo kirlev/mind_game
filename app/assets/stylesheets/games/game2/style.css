@@ -1,0 +1,204 @@
+
+
+#outside_wrapper, td, th, h1, .game_button {
+	font-size:62.5%;
+	font-family: "Palatino Linotype","Book Antiqua",Palatino,Georgia,serif;
+	color: #828988;
+}
+td, th, h1 {
+	font-size:1em;
+}
+
+p, h1 {
+	margin: 0;
+	padding: 0;
+}
+a {
+	color: #6d7c7a;
+}
+
+.fake_button {
+	visibility:hidden;
+}
+
+a:hover {
+	color: #000;
+	text-decoration: none;
+}
+#wrapper {
+	width: 50em;
+	height: 42em;
+	margin:0 auto;
+	
+	//from body
+	font-size:62.5%;
+	font-family: "Palatino Linotype","Book Antiqua",Palatino,Georgia,serif;
+	color: #828988;
+}
+h1 {
+	text-shadow: #fff 0 1px 0;
+	text-align: center;
+	width: 100%;
+	padding: 0.4em 0;
+	font-size: 2.6em;
+	color: #1d2423;
+	font-weight: normal;
+}
+h1 em {
+	color: #434d4c;
+	font-size: 0.8em;
+}
+#display, #fake_section {
+	width: 100%;
+	float: left;
+	text-align: center;
+}
+#table {
+	width: 100%;
+	height: 100%;
+	float: left;
+	padding: 1.4em 0 0.2em;
+	margin: 0 0 1.4em;
+	-moz-border-radius: 2em;  
+   	border-radius: 2em;  
+    -webkit-border-radius: 2em;
+    box-shadow: 0 0.1em 0  rgba(255,255,255,0.5);
+	-moz-box-shadow: 0 0.1em 0  rgba(255,255,255,0.5);
+	-webkit-box-shadow: 0 0.1em 0  rgba(255,255,255,0.5);
+}
+#table div {
+	float: left;
+	width: 8.8em;
+	margin: 0 0 0 1.4em;
+	height: 9.8em;
+	position: relative;
+}
+#table figure {
+	font-size: 4em;
+	width: 2.15em;
+	height: 87%;
+	text-align: center;
+	position: absolute;
+	background: url(Images/card.png) #b5157b;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#b5157b', endColorstr='#880e4f');
+	background-image:url(Images/card.png), -webkit-gradient(linear, left top, left bottom, from(#b5157b), to(#880e4f));
+	background-image:url(Images/card.png), -moz-linear-gradient(top,  #b5157b,  #880e4f);
+	box-shadow: 0.03em 0.03em 0.1em rgba(0,0,0,0.5);
+	-moz-box-shadow: 0.03em 0.03em 0.1em rgba(0,0,0,0.5);
+	-webkit-box-shadow: 0.03em 0.03em 0.1em rgba(0,0,0,0.5);
+	-moz-border-radius: 0.3em;  
+   	border-radius: 0.3em;  
+    -webkit-border-radius: 0.3em;    
+	overflow: hidden;
+	white-space: nowrap;
+	color: #791f53;
+	text-shadow: rgba(255,255,255,0.2) 0 1px 0;
+}
+figure p {
+	margin: 0;
+	line-height:1.2em;
+	padding: 0.5em 0;
+}
+#table figure.open,#table figure.done {
+	background: #78bddd;
+	color: rgba(0,0,0,0.15);
+}
+#table figure.done {
+	background: url(Images/card.png) #b2b6b6;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#b2b6b6', endColorstr='#868d8c');
+	background-image:url(Images/card.png),-webkit-gradient(linear, left top, left bottom, from(#b2b6b6), to(#868d8c));
+	background-image:url(Images/card.png),-moz-linear-gradient(top,  #b2b6b6,  #868d8c);
+}
+#table figure.open p,#table figure.done p{
+	color: #292929;
+	text-shadow: rgba(255,255,255,0.8) 0 1px 0;
+	padding: 3em 0;
+	font: 0.29em Monaco,"Courier New", Courier, mono;
+}
+#table figure.done p {
+	color: #dfe3e2;
+	text-shadow: rgba(0,0,0,0.3) 0 -1px 0;
+}
+
+#display p {
+	width: 60%;
+	float: right;
+	background: rgba(54,255,0,0.1);
+	color: #566754;
+	margin: -1em 0 0 0;
+	border-color: #fffeff;
+}
+
+#display p, .game_button {
+	padding: 1.4em 0.5em;
+	font-size: 1.4em;
+	-moz-border-radius: 0.5em;  
+   	border-radius: 0.5em;  
+    -webkit-border-radius: 0.5em;
+	box-shadow:inset 0 0 2em rgba(0,0,0,0.1);
+	-moz-box-shadow:inset 0 0 2em rgba(0,0,0,0.1);
+	-webkit-box-shadow:inset 0 0 2em rgba(0,0,0,0.1);
+	text-shadow: #fff 0 1px 0;
+}
+
+button:active {
+	color: #fff;
+	text-shadow: #000 0 -1px 0;
+	background: #696969;
+	box-shadow:inset 0.1em 0.1em 0.3em rgba(0,0,0,0.4);
+	-moz-box-shadow:inset 0.1em 0.1em 0.3em rgba(0,0,0,0.4);
+	-webkit-box-shadow:inset 0.1em 0.1em 0.3em rgba(0,0,0,0.4);
+}
+.game_button {
+	color: #282828;
+	width: 40%;
+	/*float: left;*/
+	clear: both;
+	font-size: 1.3em;
+	padding: 0.8em 0;
+	margin: -0.8em 0 0 20%;
+	background-color: rgba(249,186,27,0.15);
+	border: none;
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#eee), to(#ccc));
+	background: -moz-linear-gradient(top, #eee, #ccc);  
+    box-shadow: 0.1em 0.1em 0.3em rgba(0,0,0,0.4);
+	-moz-box-shadow: 0.1em 0.1em 0.3em rgba(0,0,0,0.4);
+	-webkit-box-shadow: 0.1em 0.1em 0.3em rgba(0,0,0,0.4);
+}
+
+table {
+	width: 100%;
+}
+
+.cat_open {
+	background-image: url(Images/cat.jpg);
+}
+
+.turtle_open {
+	background-image: url(Images/turtle.jpg);
+}
+
+.flower_open {
+	background-image: url(Images/flower.jpg);
+}
+
+.bird_open {
+	background-image: url(Images/bird.jpg);
+}
+
+.monkey_open {
+	background-image: url(Images/monkey.jpg);
+}
+.tree_open {
+	background-image: url(Images/tree.jpg);
+}
+.football_open {
+	background-image: url(Images/football.jpg);
+}
+.dog_open {
+	background-image: url(Images/dog.jpg);
+}
+
+
+
+

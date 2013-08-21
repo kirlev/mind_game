@@ -1,0 +1,56 @@
+#big_shape {
+	width: 120px;
+	height: 130px;
+}
+
+#small_shape_box {
+	float: right;
+	width: 120px;
+	height: 130px;
+	position: relative;
+}
+
+#wrapper {
+	position: relative;
+	top: 10%;
+	left: 35%;
+	width: 500px;
+}
+
+#combination_table {
+	height: 150px;
+	width: 250px;
+	position: relative;
+	left: 25%;
+}
+
+#small_shape {
+	width: 50px;
+	height: 55px;
+	position: absolute;
+	top: 20%;
+	left: 25%;
+}
+
+#choices_table {
+	height: 150px;
+	width: 100%;
+	clear: both;
+}
+
+.choice {
+	float: left;
+	width: 120px;
+	height: 130px;
+}
+
+
+
+
+
+
+
+
+
+
+

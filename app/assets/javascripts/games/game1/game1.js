@@ -354,7 +354,7 @@ function checkWinning(selectedOne) {
 		selectedOne.attrs.position[0] === Math.floor(gameMapping.length - 1) && 
 		selectedOne.attrs.position[1] === Math.floor(gameMapping.length - 1) && fruitsLeft === 0) 
 	{			
-		ratio = levels[currentLevel].steps / stepsCounter;
+		ratio = levels[currentLevel].steps / stepsCounter * 100;
 		sendGameStats(repeats, ratio);
 		var hooraySound = document.getElementById('hooray');		
 		hooraySound.src = $.browser.mozilla ? sounds.hooray.ogg : sounds.hooray.mp3;
