@@ -29,14 +29,38 @@ module SessionsHelper
       	therapist_path(user)
     elsif user.instance_of?(Patient)
       	patient_path(user)
+    else
+      therapists_path
     end
   end
 
   def edit_user_path(user)
     if user.instance_of?(Therapist)     
-        edit_therapist_path(user)
+     edit_therapist_path(user)
     elsif user.instance_of?(Patient)
-        edit_patient_path(user)
+      edit_patient_path(user)
+    else
+      root_path
+    end
+  end
+
+  def user_url(user)
+    if user.instance_of?(Therapist)     
+        therapist_url(user)
+    elsif user.instance_of?(Patient)
+        patient_url(user)
+    else
+      therapists_url
+    end
+  end
+
+  def edit_user_url(user)
+    if user.instance_of?(Therapist)     
+     edit_therapist_url(user)
+    elsif user.instance_of?(Patient)
+      edit_patient_url(user)
+    else
+      root_url
     end
   end
 

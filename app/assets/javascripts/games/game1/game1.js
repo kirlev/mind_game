@@ -80,7 +80,6 @@ window.onload = function() {
 		localStorage.setItem('firstTime', false);
 	}
 	
-	$('body').css('background', 'url(images/bg.jpg) no-repeat center');
 };
 
 function checkLevels() {
@@ -356,9 +355,7 @@ function checkWinning(selectedOne) {
 	{			
 		ratio = levels[currentLevel].steps / stepsCounter * 100;
 		sendGameStats(repeats, ratio);
-		var hooraySound = document.getElementById('hooray');		
-		hooraySound.src = $.browser.mozilla ? sounds.hooray.ogg : sounds.hooray.mp3;
-		hooraySound.play();
+		
 		window.setTimeout(function(){
 			$('#levelInfo strong.level').text(currentLevel + 1);
 			$('#levelInfo strong.step').text($('#steps strong').text());
@@ -369,7 +366,6 @@ function checkWinning(selectedOne) {
 			window.setTimeout(function(){		
 				$('.next').trigger('click');
 				$('#levelInfo').fadeOut('fast');
-				hooraySound.pause();
 			}, 5500);
 		}
 		else {
@@ -423,11 +419,7 @@ function placeObstacle(posX, posY){
 
 function moveMain(shape, level) {
 	if(selectedOne != false) {
-			// Play the "move" sound
-			var movePlayerSound = document.getElementById('move');
-			movePlayerSound.src = $.browser.mozilla ? sounds.move.ogg : sounds.move.mp3;
-			movePlayerSound.play();
-			// Set the shadow and make the transition
+						// Set the shadow and make the transition
 			selectedOne.setShadow(characters.selected.shadow[shape.getName()]);
 			selectedOne.transitionTo({
 				//x: shape.attrs.position[0],

@@ -22,6 +22,9 @@ function sendGameStats(repeats, ratio, normalize) {
 
   $.ajax({
     type: "POST", 
+    beforeSend: function(xhr) {
+      xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
+    },
     url: "/statistics",
     data: stats,
     async: false

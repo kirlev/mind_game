@@ -702,17 +702,3 @@ var characters = {
 	}
 };
 
-var sounds = {
-	hooray: {
-		ogg: 'audio/hooray.ogg',
-		mp3: 'audio/hooray.mp3'
-	},
-	move: {
-		ogg: 'audio/move.ogg',
-		mp3: 'audio/move.mp3'
-	},
-	main: {
-		ogg: 'audio/theme.ogg',
-		mp3: 'audio/theme.mp3'
-	}
-};
