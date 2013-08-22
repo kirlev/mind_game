@@ -1,7 +1,7 @@
 
 
 #outside_wrapper, td, th, h1, .game_button {
-	font-size:62.5%;
+	/*font-size:62.5%;*/
 	font-family: "Palatino Linotype","Book Antiqua",Palatino,Georgia,serif;
 	color: #828988;
 }
@@ -171,31 +171,39 @@ table {
 }
 
 .cat_open {
+	background-size: 100%;
 	background-image: url(Images/cat.jpg);
 }
 
 .turtle_open {
+	background-size: 100%;
 	background-image: url(Images/turtle.jpg);
 }
 
 .flower_open {
+	background-size: 100%;
 	background-image: url(Images/flower.jpg);
 }
 
 .bird_open {
+	background-size: 100%;
 	background-image: url(Images/bird.jpg);
 }
 
 .monkey_open {
+	background-size: 100%;
 	background-image: url(Images/monkey.jpg);
 }
 .tree_open {
+	background-size: 100%;
 	background-image: url(Images/tree.jpg);
 }
 .football_open {
+	background-size: 100%;
 	background-image: url(Images/football.jpg);
 }
 .dog_open {
+	background-size: 100%;
 	background-image: url(Images/dog.jpg);
 }
 
