@@ -5,8 +5,8 @@ namespace :db do
 		Faker::Config.locale = :he
 		email = "exampl@braintracker.com"
 		password = "foobar"
-		admin = User.create!(first_name: "adminstrator", last_name: "adminstrator", email: email,
-				username: "admin", password: password, password_confirmation: password)
+		admin = User.create!(first_name: "adminstrator", last_name: "adminstrator", gender: "Male",	
+			email: email, username: "admin", password: password, password_confirmation: password)
 		admin.toggle!(:admin)
 
 		10.times do |n| 
@@ -34,11 +34,12 @@ namespace :db do
 			email = "exampl-#{n+11}@braintracker.com"
 			username = "patient#{n+11}"
 			password = "foobar"
+			gender = "Male"
 			therapist_id = 1 + Random.rand(Therapist.count)
 			Patient.create!(first_name: first_name, last_name: last_name, email: email,
 				date_of_birth: date_of_birth, phone_number: phone_number, address: address, 
 				username: username, password: password, password_confirmation: password,
-				therapist_id: therapist_id)
+				therapist_id: therapist_id, gender: gender)
 		end
 
 		Game.create(developer: "Nir Levi", name: "Brain Tease")

@@ -17,6 +17,9 @@
       <%= f.label :last_name %>
       <%= f.text_field :last_name %>
 
+      <%= f.label :gender %>
+      <%= f.select(:gender, %w{ Male Female }, :prompt => "Select gender") %>
+
       <%= f.label :age %>
       <%= f.date_select(:age, :start_year => 1910, :end_year => Date.today.year,
                         :use_month_numbers => true, :prompt => { :day => 'Select day', :month => 'Select month', :year => 'Select year'}) %>

@@ -47,7 +47,7 @@ class TherapistsController < ApplicationController
     end
 
     def index
-        @therapists = Therapist.all
+        @therapists = Therapist.all.paginate(:page => params[:page], :per_page => 10)
     end
 
     def destroy

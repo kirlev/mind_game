@@ -7,6 +7,7 @@ gem 'pg'
 gem 'faker'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
+gem 'best_in_place'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

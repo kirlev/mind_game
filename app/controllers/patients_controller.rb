@@ -3,6 +3,7 @@ class PatientsController < ApplicationController
     before_filter :correct_user, only: [:show, :update, :edit]
     before_filter :admin_user, only: [:index]
     before_filter :correct_therapist, only: [:show_details_to_therapist]
+    respond_to :html, :json
 
     def show
         if Patient.exists?(params[:id])
@@ -38,17 +39,22 @@ class PatientsController < ApplicationController
 
     def update
         @patient = Patient.find(params[:id])
-        if @patient.update_attributes(params[:patient])
-            flash[:success] = "Profile updated"
-            sign_in @patient
-            redirect_to @patient
-        else
-            render 'edit'
+        respond_to do |format|
+            @patient.attributes = params[:patient]
+            @patient.save(:validate => false)
+            format.json {respond_with @patient }
+            format.html do 
+                sign_in @patient
+                redirect_to @patient
+            end
+            @patient.errors.full_messages.each do |msg| 
+                puts msg 
+            end
         end
     end
 
     def index
-        @patients = Patient.all
+        @patients = Patient.all.paginate(:page => params[:page], :per_page => 10)
     end
 
     def destroy

@@ -22,17 +22,18 @@ class Patient < User
     has_many :games, :through => :statistics
 
 	validates :therapist_id, presence: true
+	validates :gender, :inclusion => %w(Male Female)
 
 
 	def get_statistics(game_id)
 		stats=Statistic.where(game_id: game_id, user_id: id).order(:created_at)
-    ratioArray = stats.map { |stat| [stat.created_at.to_i, stat.ratio] }
-    repeatsArray = stats.map { |stat| [stat.created_at.to_i, stat.repeats] }
-    timeArray = stats.map { |stat| [stat.created_at.to_i, stat.time] }
-    result = [ratioArray, repeatsArray, timeArray]
-    p "-"*100
-    p result
-    result.to_json
+    	ratioArray = stats.map { |stat| [stat.created_at.to_i, stat.ratio] }
+    	repeatsArray = stats.map { |stat| [stat.created_at.to_i, stat.repeats] }
+    	timeArray = stats.map { |stat| [stat.created_at.to_i, stat.time] }
+    	result = [ratioArray, repeatsArray, timeArray]
+    	p "-"*100
+    	p result
+    	result.to_json
 	end
 
 	def get_recomnded_games

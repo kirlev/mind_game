@@ -5,7 +5,7 @@
             for (var i=0;i<data.length;i++)
                 for(var j=0;j<data[i].length;j++)
             {
-                data[i][j][0] = new Date(data[i][j][0] * 1000);
+                data[i][j][0] = new Date(data[i][j][0] * 1000).getTime();
                 data[i][j][1] = parseInt(data[i][j][1]);
             }
             return data;
@@ -38,11 +38,13 @@
                     text: "game statistics"
                 },
                 xAxis: {
-                    type: "datetime",
-                    dateTimeLabelFormats: {
-                        month: '%e. %b',
-                        year: '%b'
-                    }
+                    type: 'datetime',
+                    labels: {
+                        formatter: function() {
+                            return Highcharts.dateFormat('%d/%m/%y', this.value);
+                        }
+                    },
+                    tickPixelInterval: 200
                 },
                 yAxis: {
                     title: {
@@ -79,20 +81,52 @@
         $("#new_instruction").bind("ajax:success", function() {
             $("#instuctions_span").append("instruction sent");
         });
-    })
+    });
         
     </script>
 <% end %>
 
 <%= link_to "Back to profile page",   current_user %>
 </br>
-<h1><%= @patient.full_name %></h1>
-<h3 style="color:red">Last login: <%= @patient.updated_at %></h3>
-<h3>Date of birth: <%= @patient.date_of_birth %> (<%= @patient.age %>)</h3>
-<h3>Address: <%= @patient.address %></h3>
-<h3>Phone number: <%= @patient.phone_number %></h3>
-<h3>Injury description: </h3>
-<h4><%= @patient.injury %></h4>
+    <h1><%= @patient.full_name %></h1>
+    
+    <section class="property">
+        <h3 style="color:red">Last login: <%= @patient.last_login %></h3>
+    </section>
+
+    <section class="property">
+        <h3>Gender: 
+            <span class="gender"><%= best_in_place @patient, :gender, type: :select, collection: [["Male", "Male"], ["Female", "Female"]] %></span>
+        </h3>
+    </section>
+    
+    <section class="property">
+        <h3>Date of birth: 
+            <span class="date_of_birth">(y-m-d)<%= best_in_place @patient, :date_of_birth, 
+            :type => :date %> (<%= @patient.age %>)</span>
+        </h3>
+    </section>
+    
+    <section class="property">
+        <h3>Address: 
+            <span class="address"><%= best_in_place @patient, :address %></span>
+        </h3>
+
+    </section>
+    
+    <section class="property">
+        <h3>Phone number: 
+            <span class="phone_number"><%= best_in_place @patient, :phone_number %></span>
+        </h3>
+    </section>
+    
+    <section class="property">
+        <h3>Injury description: </h3></br>
+        <h4>
+            <span class="injury"><%= best_in_place @patient, :injury, type: :textarea %></span>
+        </h4>
+    </section>
+
 <div id="statistics">
 	<form>
         <p>Patient's statistics</p>

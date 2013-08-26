@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130817150525) do
+ActiveRecord::Schema.define(:version => 20130826210324) do
 
   create_table "games", :force => true do |t|
     t.string   "name"
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(:version => 20130817150525) do
     t.string   "phone_number"
     t.string   "injury"
     t.datetime "last_login"
+    t.string   "gender"
   end
 
   add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
