@@ -20,7 +20,6 @@ var stepsCounter = 0;
 
 
 window.onload = function() {	
-	$('#locale_set').remove();	
 	loadImages(function(images) {		
 		imageResources = images;
 		init(currentLevel, 0);

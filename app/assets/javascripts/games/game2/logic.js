@@ -108,7 +108,6 @@ function checkForMatch(cardValue) {
 }
 
 $(document).ready(function () {
-    $('#locale_set').remove();
 	init();
 });
 function closeOpen() {
