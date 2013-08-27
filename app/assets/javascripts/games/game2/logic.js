@@ -58,13 +58,13 @@ function init() {
 		if (twoCardsAreOpen == FALSE && !$(this).hasClass("open")) {
 			$(this).animate({
 				"width" : 0,
-				"left" : "50%"
+				"right" : "50%"
 			}, 200, 'swing', function () {
 				var cardValue = tags[$(this).attr("class")];
 				$(this).html("<p class='" + cardValue + "_open" + "'>.</p>").addClass("open").parent().addClass(cardValue);
 				$(this).animate({
 					"width" : "2.15em",
-					"left" : 0
+					"right" : 0
 				}, 200, 'swing', function () {
 					if (firstCard == NO_CARD) { //this is the first card to be flipped
 						firstCard = cardValue;
