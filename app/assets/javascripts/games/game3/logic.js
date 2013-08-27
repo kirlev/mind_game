@@ -96,6 +96,7 @@ function winProcedure() {
 }
 
 $(document).ready(function () {
+	$('#locale_set').remove();
 	init();
 	startTimer();
 });

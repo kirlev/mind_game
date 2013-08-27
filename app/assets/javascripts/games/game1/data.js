@@ -169,15 +169,31 @@ var levels = [
 	},
 	{
 		id: 5,
-		steps: 10,
+		steps: 14,
 		characters: [
 			{
 				name: 'watermelon',
 				position: [4,2]
 			},
 			{
+				name: 'watermelon',
+				position: [3,3]
+			},
+			{
+				name: 'watermelon',
+				position: [4,3]
+			},
+			{
+				name: 'watermelon',
+				position: [3,1]
+			},
+			{
 				name: 'brickwall',
 				position: [1,2]
+			},
+			{
+				name: 'brickwall',
+				position: [3,4]
 			},
 			{
 				name: 'brickwall',
@@ -195,15 +211,39 @@ var levels = [
 	},	
 	{
 		id: 6,
-		steps: 10,
+		steps: 14,
 		characters: [
 			{
 				name: 'watermelon',
 				position: [4,0]
 			},
 			{
+				name: 'watermelon',
+				position: [1,3]
+			},
+			{
+				name: 'watermelon',
+				position: [2,1]
+			},
+			{
+				name: 'watermelon',
+				position: [3,2]
+			},
+			{
 				name: 'brickwall',
 				position: [3,0]
+			},
+			{
+				name: 'brickwall',
+				position: [2,3]
+			},
+			{
+				name: 'brickwall',
+				position: [2,4]
+			},
+			{
+				name: 'brickwall',
+				position: [4,3]
 			},
 			{
 				name: 'brickwall',
@@ -221,11 +261,35 @@ var levels = [
 	},
 	{
 		id: 7,
-		steps: 10,
+		steps: 14,
 		characters: [
 			{
 				name: 'watermelon',
 				position: [2,0]
+			},
+			{
+				name: 'watermelon',
+				position: [0,3]
+			},
+			{
+				name: 'watermelon',
+				position: [0,4]
+			},
+			{
+				name: 'watermelon',
+				position: [4,0]
+			},
+			{
+				name: 'watermelon',
+				position: [3,1]
+			},
+			{
+				name: 'watermelon',
+				position: [2,1]
+			},
+			{
+				name: 'watermelon',
+				position: [4,2]
 			},
 			{
 				name: 'brickwall',
@@ -251,15 +315,43 @@ var levels = [
 	},
 	{
 		id: 8,
-		steps: 10,
+		steps: 14,
 		characters: [
 			{
 				name: 'watermelon',
 				position: [0,1]
 			},
 			{
+				name: 'watermelon',
+				position: [0,4]
+			},
+			{
+				name: 'watermelon',
+				position: [1,4]
+			},
+			{
+				name: 'watermelon',
+				position: [2,1]
+			},
+			{
+				name: 'watermelon',
+				position: [4,0]
+			},
+			{
+				name: 'watermelon',
+				position: [4,2]
+			},
+			{
 				name: 'brickwall',
 				position: [2,0]
+			},
+			{
+				name: 'brickwall',
+				position: [2,2]
+			},
+			{
+				name: 'brickwall',
+				position: [1,3]
 			},
 			{
 				name: 'brickwall',
@@ -277,11 +369,23 @@ var levels = [
 	},
 	{
 		id: 9,
-		steps: 10,
+		steps: 15,
 		characters: [
 			{
 				name: 'watermelon',
 				position: [3,1]
+			},
+			{
+				name: 'watermelon',
+				position: [0,3]
+			},
+			{
+				name: 'watermelon',
+				position: [0,4]
+			},
+			{
+				name: 'watermelon',
+				position: [2,4]
 			},
 			{
 				name: 'brickwall',
@@ -289,6 +393,18 @@ var levels = [
 			},
 			{
 				name: 'brickwall',
+				position: [3,3]
+			},
+			{
+				name: 'brickwall',
+				position: [1,1]
+			},
+			{
+				name: 'brickwall',
+				position: [1,3]
+			},
+			{
+				name: 'watermelon',
 				position: [3,4]
 			},
 			{
@@ -303,11 +419,22 @@ var levels = [
 	},
 	{
 		id: 10,
-		steps: 10,
 		characters: [
 			{
 				name: 'watermelon',
 				position: [3,3]
+			},
+			{
+				name: 'watermelon',
+				position: [2,2]
+			},
+			{
+				name: 'watermelon',
+				position: [1,1]
+			},
+			{
+				name: 'watermelon',
+				position: [3,4]
 			},
 			{
 				name: 'brickwall',
@@ -316,6 +443,10 @@ var levels = [
 			{
 				name: 'brickwall',
 				position: [4,1]
+			},
+			{
+				name: 'brickwall',
+				position: [4,3]
 			},
 			{
 				name: 'orange',

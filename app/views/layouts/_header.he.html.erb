@@ -3,10 +3,10 @@
     <div class="container">
       <%= link_to "Brain Tracker", root_path, id: "logo" %>
       <nav>
-        <p>
+        <p id='locale_set'>
           <%= link_to_unless I18n.locale == :en, "English", set_language_english_path %>
           |
-          <%= link_to_unless I18n.locale == :he, "Hebrew", set_language_hebrew_path %>
+          <%= link_to_unless I18n.locale == :he, "עברית", set_language_hebrew_path %>
         </p>
         <ul class="nav pull-right">
           <li><%= link_to "דף הבית", root_path %></li>
