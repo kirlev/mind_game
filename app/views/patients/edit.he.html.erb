@@ -6,7 +6,7 @@
     <%= form_for(@patient) do |f| %>
       <%= render 'shared/patient_error_messages' %>
 
-      <%= f.label "סיסמה חדשה %>
+      <%= f.label "סיסמה חדשה" %>
       <%= f.password_field :password %>
 
       <%= f.label :password_confirmation, "אישור סיסמה חדשה" %>
