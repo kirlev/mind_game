@@ -1,0 +1,10 @@
+<div class="center hero-unit">
+  <h1>ברוכים הבאים לאתר</br>Brain Tracker</h1>
+
+  <h2>
+    זה עמוד הבית של האפליקציה לשיקום קוגנטיבי </br> Brain Tracker
+  </h2>
+
+  <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
+</div>
+

@@ -1,0 +1,30 @@
+<% provide(:title, "ערוך פרופיל מטפל") %> 
+<h1>עדכן את פרטיך</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@therapist) do |f| %>
+      <%= render 'shared/error_messages' %>
+
+      <%= f.label "שם משתמש" %>
+      <%= f.text_field :username %>
+
+      <%= f.label "שם פרטי" %>
+      <%= f.text_field :first_name %>
+
+      <%= f.label "שם משפחה" %>
+      <%= f.text_field :last_name %>
+
+      <%= f.label "אימייל" %>
+      <%= f.text_field :email %>
+
+      <%= f.label "סיסמא" %>
+      <%= f.password_field :password %>
+
+      <%= f.label :password_confirmation, "אישור סיסמא" %>
+      <%= f.password_field :password_confirmation %>
+
+      <%= f.submit "שמור שינויים", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

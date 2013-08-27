@@ -1,0 +1,19 @@
+<% provide(:title, @therapist.full_name) %>
+
+<ul class="nav" >
+    <h3><%= @therapist.full_name %></h3>
+    <li><%= link_to "הוסף מטופל חדש", patient_signup_path( :patient =>
+    				{ :therapist_id => @therapist.id.to_s }) %>
+    </li>
+</ul>
+<div class="container">
+  <h4>המטופלים שלך:</h4>
+  <%= will_paginate @patients, :previous_label => "הקודם", :next_label => "הבא" %>
+	<ul class="patients">
+  		<% @patients.each do |patient| %>
+     </br>
+    	<%= render :template => 'therapists/_patient', :locals => { :patient => patient }%>
+  		<% end %>
+	</ul>
+    <%= will_paginate @patients, :previous_label => "הקודם", :next_label => "הבא" %>
+</div>

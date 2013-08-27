@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html <%= p('dir=rtl') unless I18n.locale == :en%>>
   <head>
     <title><%= full_title(yield(:title)) %></title>
     <script type="text/javascript">

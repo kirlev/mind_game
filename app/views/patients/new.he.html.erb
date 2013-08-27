@@ -1,0 +1,44 @@
+<% provide(:title, 'רישום מטופל חדש') %>
+<h1>רישום מטופל חדש</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@patient) do |f| %>
+    <%= render 'shared/patient_error_messages' %>
+
+      <%= f.hidden_field :therapist_id, :value => @therapist_id %>
+
+      <%= f.label "שם משתמש" %>
+      <%= f.text_field :username %>
+
+      <%= f.label "שם פרטי" %>
+      <%= f.text_field :first_name %>
+
+      <%= f.label "שם משפחה" %>
+      <%= f.text_field :last_name %>
+
+      <%= f.label "מין" %>
+      <%= f.select(:gender, %w{ Male Female }, :prompt => "Select gender") %>
+
+      <%= f.label "תאריך לידה" %>
+      <%= f.date_select(:date_of_birth, :start_year => 1910, :end_year => Date.today.year, :order => [:day, :month, :year], :use_month_numbers => true, :prompt => { :day => 'בחר יום', :month => 'בחר חודש', :year => 'בחר שנה'}) %>
+
+      <%= f.label "כתובת" %>
+      <%= f.text_field :address %>
+
+      <%= f.label "מספר טלפון" %>
+      <%= f.text_field :phone_number %>
+
+      <%= f.label "תיאור הפגיעה" %>
+      <%= f.text_area :injury, :rows => 5 %>
+
+      <%= f.label "סיסמה" %>
+      <%= f.password_field :password %>
+
+      <%= f.label :password_confirmation, "אישור סיסמה" %>
+      <%= f.password_field :password_confirmation %>
+
+      <%= f.submit "יצירת משתמש מטופל חדש", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

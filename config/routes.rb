@@ -1,5 +1,9 @@
 MindGame::Application.routes.draw do
 
+  get "set_language/english"
+
+  get "set_language/hebrew"
+
   get "instructions/create"
 
   get "games/show"

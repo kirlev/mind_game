@@ -1,0 +1,9 @@
+
+<li id="navbar fat-menu" class="dropdown" style="overflow:visible;">
+  <b>
+  <%= link_to patient.full_name, show_details_to_therapist_patient_path(patient) %>
+  </b>
+  </a>
+  <%= link_to "delete patient", patient, method: :delete, 
+  									data: { confirm: "You sure?" } %>
+</li>

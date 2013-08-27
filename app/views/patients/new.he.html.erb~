@@ -1,0 +1,44 @@
+<% provide(:title, 'patient sign up') %>
+<h1>Sign up</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@patient) do |f| %>
+    <%= render 'shared/patient_error_messages' %>
+
+      <%= f.hidden_field :therapist_id, :value => @therapist_id %>
+
+      <%= f.label :username %>
+      <%= f.text_field :username %>
+
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name %>
+
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name %>
+
+      <%= f.label :gender %>
+      <%= f.select(:gender, %w{ Male Female }, :prompt => "Select gender") %>
+
+      <%= f.label :date_of_birth %>
+      <%= f.date_select(:date_of_birth, :start_year => 1910, :end_year => Date.today.year, :order => [:day, :month, :year], :use_month_numbers => true, :prompt => { :day => 'Select day', :month => 'Select month', :year => 'Select year'}) %>
+
+      <%= f.label :address %>
+      <%= f.text_field :address %>
+
+      <%= f.label :phone_number %>
+      <%= f.text_field :phone_number %>
+
+      <%= f.label :injury %>
+      <%= f.text_area :injury, :rows => 5 %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+
+      <%= f.label :password_confirmation, "Confirmation" %>
+      <%= f.password_field :password_confirmation %>
+
+      <%= f.submit "Create patient account", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

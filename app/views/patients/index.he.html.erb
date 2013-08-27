@@ -1,0 +1,18 @@
+<% provide(:title, 'רשימת כל המטופלים') %>
+<h1>רשימת כל המטופלים</h1>
+
+<%= will_paginate @patients, :previous_label => "הקודם", :next_label => "הבא" %>
+<ul class="users">
+  <% @patients.each do |patient| %>
+    <li>
+      <b>
+        <%= link_to patient.full_name, show_details_to_therapist_patient_path(patient) %>
+      </b>
+      <% if current_user.admin? && !current_user?(patient) %>
+      <%= link_to "מחק מטופל", patient, method: :delete, 
+  									data: { confirm: "אתה בטוח?" } %>
+  	  <% end %>
+    </li>
+  <% end %>
+</ul>
+<%= will_paginate @patients, :previous_label => "הקודם", :next_label => "הבא" %>

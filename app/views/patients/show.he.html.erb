@@ -1,0 +1,19 @@
+
+<h1><center>שלום <%= @patient.full_name %></center></h1>
+<div>
+	<h3><b>מטלות</b></h3><br/>
+		<% unless @games.nil? %>
+		<ul>
+			<% @games.each do |game| %>
+            	<%= link_to game.name, game_path(game) %>
+        		</br>
+        	<% end %>
+	</ul>
+	<section id="instruction_details">
+		<h5><u>הדרכה</u>: </h5><p><%= @instruction_details %></p>
+	</section>
+		<% else %>
+			<p>אין הדרכה כרגע</p>
+		<% end %>
+	<hr>
+	<p>לכל המשחקים היכנס ל<%= link_to "דף המשחקים", games_path %></p>

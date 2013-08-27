@@ -93,11 +93,11 @@ class PatientsController < ApplicationController
     end
 
     def parse_params_to_new_patient(params)
-        year = params[:patient]["age(1i)"].to_i
-        month = params[:patient]["age(2i)"].to_i
-        day = params[:patient]["age(3i)"].to_i
+        year = params[:patient]["date_of_birth(1i)"].to_i
+        month = params[:patient]["date_of_birth(2i)"].to_i
+        day = params[:patient]["date_of_birth(3i)"].to_i
         date_of_birth = Date.new(year, month, day)
         params[:patient][:date_of_birth] = date_of_birth
-        Patient.new(params[:patient].except("age(1i)", "age(2i)", "age(3i)"))
+        Patient.new(params[:patient].except("date_of_birth(1i)", "date_of_birth(2i)", "date_of_birth(3i)"))
     end
 end

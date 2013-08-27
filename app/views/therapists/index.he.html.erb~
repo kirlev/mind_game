@@ -1,0 +1,18 @@
+<% provide(:title, 'All therapists') %>
+<h1>All therapists</h1>
+
+<%= will_paginate @therapists%>
+<ul class="users">
+  <% @therapists.each do |therapist| %>
+    <li>
+      <b>
+      	<%= link_to therapist.full_name, therapist %>
+  	  </b>
+      <% if current_user.admin? && !current_user?(therapist) %>
+      <%= link_to "delete therapist", therapist, method: :delete, 
+  									data: { confirm: "You sure?" } %>
+  	  <% end %>
+    </li>
+  <% end %>
+</ul>
+<%= will_paginate @therapists%>
