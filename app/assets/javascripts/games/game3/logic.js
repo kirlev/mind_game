@@ -9,7 +9,7 @@ var correctBigShapeCasted;
 var correctSmallShapeCasted;
 var correctAnswers = 0;
 var reatio;
-var repeats;
+var repeats = 0;
 
 
 function init() {
@@ -77,6 +77,7 @@ function drowChoices() {
 				winProcedure();
 			} else {
 				$(this).unbind("click").css("visibility", "hidden");
+				repeats++;
 				$("#display ").html("<h4>Wrong! try again</h4>");
 				setInterval(function(){
 					$("#display h4").remove();
@@ -103,8 +104,8 @@ $(document).ready(function () {
 $(window).unload(function() {
 	minutesPassed = getMinutesPassed();
 	if(minutesPassed > 0) {
+		repeats = repeats / minutesPassed;
 		ratio = correctAnswers / minutesPassed;
-		repeats = correctAnswers;
 		sendGameStats(repeats, ratio, 1);
 	}
 });
