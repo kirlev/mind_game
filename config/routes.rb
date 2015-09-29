@@ -25,26 +25,26 @@ end
 resources :sessions, only: [:new, :create, :destroy]
 
 #static pages
-match '/help',    to: 'static_pages#help'
-match '/about',   to: 'static_pages#about'
-match '/contact', to: 'static_pages#contact'  
+get '/help',    to: 'static_pages#help'
+get '/about',   to: 'static_pages#about'
+get '/contact', to: 'static_pages#contact'
 
 #sign-up pages
-match '/signup', to: 'therapists#new'
-match '/patient_signup', to: 'patients#new'
+get '/signup', to: 'therapists#new'
+get '/patient_signup', to: 'patients#new'
 
 #sign-in-out pages
-match '/signin',  to: 'sessions#new'
-match '/signout', to: 'sessions#destroy', via: :delete
+get '/signin',  to: 'sessions#new'
+get '/signout', to: 'sessions#destroy', via: :delete
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
   # Sample of regular route:
-  #   match 'products/:id' => 'catalog#view'
+  #   get 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
 
   # Sample of named route:
-  #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
+  #   get 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
@@ -91,5 +91,5 @@ match '/signout', to: 'sessions#destroy', via: :delete
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
-  # match ':controller(/:action(/:id))(.:format)'
+  # get ':controller(/:action(/:id))(.:format)'
 end
