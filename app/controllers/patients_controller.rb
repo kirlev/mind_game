@@ -40,15 +40,15 @@ class PatientsController < ApplicationController
     def update
         @patient = Patient.find(params[:id])
         respond_to do |format|
-            @patient.attributes = params[:patient]
+            @patient.attributes = params[:patient].permit!
             @patient.save(:validate => false)
             format.json {respond_with @patient }
-            format.html do 
+            format.html do
                 sign_in @patient
                 redirect_to @patient
             end
-            @patient.errors.full_messages.each do |msg| 
-                puts msg 
+            @patient.errors.full_messages.each do |msg|
+                puts msg
             end
         end
     end
@@ -98,6 +98,7 @@ class PatientsController < ApplicationController
         day = params[:patient]["date_of_birth(3i)"].to_i
         date_of_birth = Date.new(year, month, day)
         params[:patient][:date_of_birth] = date_of_birth
-        Patient.new(params[:patient].except("date_of_birth(1i)", "date_of_birth(2i)", "date_of_birth(3i)"))
+        patient_hash = params[:patient].to_h
+        Patient.new(patient_hash.except("date_of_birth(1i)", "date_of_birth(2i)", "date_of_birth(3i)"))
     end
 end

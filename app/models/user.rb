@@ -16,25 +16,25 @@
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :username, :age, :first_name, :last_name, :email, :therapist_id, 
-              :phone_number, :date_of_birth, :address, :injury, :last_login, :gender, 
-              :hospital_name, :password, :password_confirmation, :type
+  # attr_accessible :username, :age, :first_name, :last_name, :email, :therapist_id,
+  #             :phone_number, :date_of_birth, :address, :injury, :last_login, :gender,
+  #             :hospital_name, :password, :password_confirmation, :type
 
   has_secure_password
 
-  before_save { |user| user.username = username.downcase } 
-  before_save { |user| user.last_login = DateTime.now } 
+  before_save { |user| user.username = username.downcase }
+  before_save { |user| user.last_login = DateTime.now }
   before_save :create_remember_token
 
   validates :first_name, presence: true, length: { maximum: 50 }
   validates :last_name, presence: true, length: { maximum: 50 }
-  
+
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, format:     { with: VALID_EMAIL_REGEX }, :allow_nil => true
-                    
+
   validates :username, presence:   true
-  
-                    
+
+
   validates :password, presence: true, length: { minimum: 6 }
   validates :password_confirmation, presence: true
 
